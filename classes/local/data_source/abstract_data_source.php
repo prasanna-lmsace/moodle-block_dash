@@ -367,8 +367,6 @@ abstract class abstract_data_source implements data_source_interface, \templatab
                 }
             }
         }
-        // print_r($this->data->get_child_collections('rows')[0]);exit;
-
         return $this->data;
     }
 
