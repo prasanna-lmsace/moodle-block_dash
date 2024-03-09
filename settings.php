@@ -35,14 +35,32 @@ if ($ADMIN->fulltree) {
         block_dash_is_totara() ? 3 : 4,
         [
             3 => 'Bootstrap 3.x',
-            4 => 'Bootstrap 4.x'
+            4 => 'Bootstrap 4.x',
         ]
     ));
+
+    $settings->add(new admin_setting_configselect(
+        'block_dash/hide_when_empty',
+        get_string('hidewhenempty', 'block_dash'),
+        get_string('hidewhenempty_desc', 'block_dash'),
+        0,
+        [
+            0 => get_string('no'),
+            1 => get_string('yes'),
+        ]
+        ));
 
     $settings->add(new admin_setting_configcheckbox(
         'block_dash/disableall',
         get_string('disableall', 'block_dash'),
         get_string('disableall_help', 'block_dash'),
+        0
+    ));
+
+    $settings->add(new admin_setting_configcheckbox(
+        'block_dash/exportdata',
+        get_string('defaultexportdata', 'block_dash'),
+        get_string('defaultexportdata_help', 'block_dash'),
         0
     ));
 

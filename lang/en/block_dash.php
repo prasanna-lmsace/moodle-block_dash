@@ -163,6 +163,7 @@ $string['headercontent'] = 'Header content';
 $string['headercontent_help'] = 'Content displayed in the block header.';
 $string['headingfield'] = 'Heading field';
 $string['hidewhenempty'] = 'Hide when empty';
+$string['hidewhenempty_desc'] = "Hide the dash block when it's empty.";
 $string['iconfield'] = 'Icon field';
 $string['imageoverlayfield'] = 'Image overlay field';
 $string['imageoverlayfield_help'] = 'Content to display over image with solid background.';
@@ -416,3 +417,355 @@ $string['hidemycourses'] = 'Hide my enrolled courses';
 $string['datasource:completion_widget'] = 'Course completions widget';
 $string['coursedates'] = 'Course dates';
 $string['enrollmentoptions'] = 'Enrolment methods';
+
+
+$string['strslider'] = "Slider";
+$string['strmasonry'] = "Masonry";
+$string['layoutmode'] = "Layout mode";
+$string['layoutmode_help'] = "Select which mode appers on the widget";
+$string['autoplay'] = 'Autoplay';
+$string['autoplaySpeed'] = 'Autoplay speed (ms)';
+$string['arrows'] = 'Show arrows';
+$string['centerMode'] = 'Center mode';
+$string['centerPadding'] = 'Center padding (px)';
+$string['dots'] = 'Show dots';
+$string['draggable'] = 'Draggable';
+$string['fade'] = 'Fade';
+$string['infinite'] = 'Infinite loop';
+$string['rows'] = 'Rows';
+$string['slidesPerRow'] = 'Slides per row';
+$string['slidesToShow'] = 'Slides to show';
+$string['slidesToScroll'] = 'Slides to scroll';
+$string['speed'] = 'Transition speed (ms)';
+$string['swipeToSlide'] = 'Swipe to slide';
+$string['variableWidth'] = 'Variable width';
+$string['vertical'] = 'Vertical';
+$string['verticalSwiping'] = 'Vertical swiping';
+
+$string['autoplay_help'] = 'Autoplay';
+$string['autoplaySpeed_help'] = 'Set the speed of the autoplay in milliseconds.';
+$string['arrows_help'] = 'Display arrow buttons for next/previous slide navigation.';
+$string['centerMode_help'] = 'Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.';
+$string['centerPadding_help'] = 'Side padding when in center mode (px).';
+$string['dots_help'] = 'Display dot indicators for slide navigation.';
+$string['draggable_help'] = 'Enables dragging and flicking of slides.';
+$string['fade_help'] = 'Enables fade effect on slides transition.';
+$string['infinite_help'] = 'Enables infinite loop sliding.';
+$string['rows_help'] = 'Number of rows to display when using multiple rows with slidesPerRow option.';
+$string['slidesPerRow_help'] = 'Number of slides to display in one row.';
+$string['slidesToShow_help'] = 'Number of slides to display at once.';
+$string['slidesToScroll_help'] = 'Number of slides to scroll at once.';
+$string['speed_help'] = 'Set the speed of the slide transition in milliseconds.';
+$string['swipeToSlide_help'] = 'Enables swiping/dragging to slide to the closest slide after releasing touch.';
+$string['variableWidth_help'] = 'Enables variable width slides.';
+$string['vertical_help'] = 'Vertical slide orientation.';
+$string['verticalSwiping_help'] = 'Enables vertical swiping/dragging of slides.';
+
+$string['details_area'] = 'Details area';
+$string['details_area_help'] = 'Choose how you want to display the details area.';
+$string['details_area_size'] = 'Details area size';
+$string['details_area_size_help'] = 'Choose how you want to size the details area.';
+$string['like_item'] = 'Like item';
+$string['like_item_help'] = 'Make the details area the same size as the card.';
+$string['fit_content'] = 'Fit content';
+$string['fit_content_help'] = 'Make the height of the details area the same as the card, and let the width be determined by the content.';
+$string['details_area_locations'] = 'Details area locations';
+$string['details_area_locations_help'] = 'Enter the details for each location you want to display in the details area.';
+$string['details_bg_color'] = 'Details Background color';
+$string['details_text_color'] = 'Details Text color';
+$string['masonrycustomfield'] = "Dash settings";
+$string['strgridsize'] = "Grid size";
+$string['gridsizeoptions'] = "Wide\nTall\nSquare";
+$string['strpromotion'] = "Promotion";
+$string['promotionoptions'] = "Featured\nNormal\nDimmed";
+$string['strcssclass'] = "CSS classes";
+
+$string['strmasonrysearch'] = "Search box";
+$string['strmasonrysort'] = "Sorting";
+$string['strasc'] = "Asc";
+$string['strdesc'] = "Desc";
+$string['styleoptions'] = "Styling options";
+$string['strinfo'] = "Info";
+$string['strgrid'] = "Grid";
+$string['styleoptions_help'] = "In order to apply individual styles to items, you can use custom fields. Pick the custom fields that you should be applied as CSS class to the grid item. Note: You have to create CSS styles yourself, Dash does not come with predefined CSS styles (but we plan to add the in the next version).";
+
+// Details area.
+$string['details_title'] = "Details Title";
+$string['details_body_1'] = "Details Body 1";
+$string['details_body_2'] = "Details Body 2";
+$string['details_body_3'] = "Details Body 3";
+$string['details_footer_left'] = "Details Footer left";
+$string['details_footer_right'] = "Details Footer right";
+$string['strdisabled'] = "Disabled";
+$string['strexpanding'] = "Expanding";
+$string['strfloating'] = "Floating";
+$string['strmodal'] = "Modal";
+
+// Export download option.
+$string['downloadcsv'] = 'Download in CSV format';
+$string['enabledownload'] = "Export data";
+$string['enabledownload_help'] = "This setting enables users to download the data in both CSV and XLS formats.";
+$string['defaultexportdata'] = "Dash export data";
+$string['defaultexportdata_help'] = "This setting allows the configuration to enable/disable the dash datasource export data.";
+$string['hidetable'] = "Hide the table content.";
+$string['hidetable_help'] = " Enabling this option allows users to hide the table content in dash instance. Only the header and footer blocks will remain visible.";
+$string['strdatasource'] = "datasource";
+// ...Custom feature type.
+$string['customfeaturetype'] = 'Custom feature type';
+// ...Dashaddon content strings.
+$string['contenteditor'] = 'Content';
+$string['contentmodaltitle'] = 'Update the dash content';
+$string['backgroundcolor'] = 'Background color';
+$string['textcolor'] = 'Text color';
+// ...Content addon layout options.
+$string['layoutfull'] = 'Full layout';
+$string['layoutdoubleequal'] = 'Double equal';
+$string['layoutdoubleleft'] = 'Double (1/3, 2/3) ';
+$string['layoutdoubleright'] = 'Double (2/3, 1/3)';
+$string['layouttriple'] = 'Triple equal';
+$string['contentlayout'] = 'Content layout';
+$string['selectlayout'] = 'Select the content layout in preferences to add content';
+$string['otheraddons'] = 'Other addons';
+$string['contentdisplayallpage'] = 'All pages';
+$string['contentdisplaysection'] = 'Section pages';
+$string['contentdisplay'] = 'Display';
+$string['contentsectiondisplay'] = 'Display sections';
+$string['contentsections'] = 'Sections to display';
+
+$string['dash:managedatasource'] = 'Manage Datasources';
+$string['dash:managewidget'] = 'Manage Widgets';
+$string['addcontent'] = 'Add content';
+$string['editcontent'] = 'Edit content';
+// ...Feature chooser strings.
+$string['dashaddoncontentdesc'] = 'Choose from the following layouts';
+$string['widgetsdesc'] = 'Pick a ready-to-use content widget and configure it';
+$string['datasourcedesc'] = 'Add dynamic content with data sources and layouts';
+// ...Conditions strings.
+$string['showhiddencourses'] = 'Show hidden courses';
+$string['maintable'] = 'Select main table <b>(mnt)</b> ';
+$string['maintable_help'] = 'Choose the main table for field generation';
+// ...Developer addon strings.
+
+// ...Operators strings.
+$string['operatorequal'] = '=';
+$string['operatornotequal'] = '!=';
+$string['operatorgreaterthan'] = '>';
+$string['operatorgreaterthanequal'] = '>=';
+$string['operatorlessthan'] = '<';
+$string['operatorlessthanequal'] = '<=';
+$string['operatorlike'] = 'LIKE';
+$string['operatorlikebetween'] = 'LIKE %..%';
+$string['operatornotlike'] = 'NOT LIKE';
+$string['operatorin'] = 'IN (...)';
+$string['operatornotin'] = 'NOT IN (...)';
+$string['operatorinquery'] = 'IN (Query)';
+$string['operator'] = 'Operator';
+
+// ...Form section headers.
+$string['fieldssection'] = 'Fields setup';
+$string['conditionsection'] = 'Condition setup';
+$string['fields'] = 'Fields';
+$string['field'] = 'Field';
+$string['fieldtransformdata'] = 'Transform the format';
+$string['fieldtransformdata_help'] = 'Transform the format of the value when displayed in the table';
+
+$string['fieldcustomdata'] = 'Additional format value';
+$string['fieldcustomdata_help'] = 'Enter the additional data related to the selected attribute
+<b>For example: </b>
+1. For the link attribute, enter the link and use the field values as parameters <br>
+2. For the percent attribute, Use the outof value. For the grades use 10 otherwise it uses 100
+';
+
+$string['operatorcondition'] = 'Condition';
+$string['conditionvalue'] = 'Value';
+$string['customcondition'] = 'Custom condition query';
+$string['conditionaddfields'] = 'Add {no} condition(s)';
+$string['conditionvalue_help'] = 'Condition Value - Enter the specific value against which the condition will be checked. This value is crucial in determining when the condition is met or satisfied.
+Enter the values with comma(,) for IN conditions';
+
+// ...Developer datasource and table.
+$string['attribute'] = 'Attribute';
+$string['maintablenotconfigured'] = 'Main table not configured for the developer data source';
+$string['persistenttablealias'] = 'Custom source main table';
+$string['developerfield'] = '{$a}';
+$string['developerfieldid'] = 'id';
+$string['tablejoinshdr'] = 'Join tables';
+
+$string['tablejoin'] = 'Select Join table';
+$string['tablejoin_help'] = 'Choose the table to join with main table. Use the alias for conditions.';
+$string['tablejoinon'] = 'Enter condition query to join';
+$string['deletejoin'] = 'Delete this join table';
+
+$string['placeholderfields'] = 'Placeholder fields';
+$string['placeholderfields_help'] = 'Select the fields and use those fields in the field additional custom values with {field_name}, this will be replaced with its corresponding values.';
+$string['generateattributes'] = 'Generate field attributes';
+$string['fieldattributeshdr'] = 'Transform field data format';
+$string['transformformat'] = 'Transform format of {$a}';
+$string['enablejoins'] = 'Enable joins';
+$string['enableconditions'] = 'Enable conditions';
+$string['generatefields'] = 'Generate fields';
+$string['addjointable'] = 'Add {no} join table to form';
+$string['deletefield'] = 'Delete this field';
+$string['deletecondition'] = 'Delete this condition';
+$string['tablejoinstatichdr'] = 'Joint table #{$a}';
+$string['tablejoinsalias'] = 'Table alias';
+$string['fieldstatichdr'] = 'Field #0';
+$string['conditionstatichdr'] = 'Condition #0';
+$string['operatorcondition_help'] = 'Conjunctive Operator - Choose between "AND" and "OR" to define how multiple conditions are combined.
+- "AND" requires that all conditions must be true for the overall condition to be met.
+- "OR" requires that at least one of the conditions must be true for the overall condition to be met.';
+
+// ...Skill progress dash addon widget.
+$string['widget:skillprogress'] = 'Skill progress';
+$string['widget:skillprogress_help'] = 'Skill Progress displays the user\'s overall progress in all selected skills, including the current level and points earned for each skill individually.';
+$string['coursedates'] = 'Course dates';
+$string['skills'] = 'Skills';
+$string['donut'] = 'Donut';
+$string['currentlevel'] = 'Current level';
+$string['nextlevelpoints'] = 'Next level points';
+$string['totallevelpoints'] = 'Total level points';
+$string['hideindividualskills'] = 'Hide individual skills';
+
+// ...Myskill condition.
+$string['myskills'] = 'My skills';
+$string['hidecompletedskills'] = 'Hide completed skills';
+$string['currentcourseskills'] = 'Current course skills';
+$string['totalpoints'] = 'Total points';
+$string['nextlevelstr'] = '{$a->points} points to become {$a->name}';
+
+// ...Dash skill levels visual display.
+$string['widget:skilllevelvisuals'] = 'Skill level visuals';
+$string['widget:skilllevelvisuals_help'] = 'Display the levels associated with the selected skill as images.';
+$string['fieldcurrentlevel'] = 'Display current level';
+$string['fieldalllevels'] = 'Display all levels';
+$string['chooseskill'] = 'Choose skill';
+$string['tablealias_tsk'] = 'Skills';
+$string['yourcurrentlevel'] = 'Your current level';
+
+// ... My profile widget strings.
+$string['myprofiletable'] = 'Profile';
+$string['widget:myprofile'] = 'My profile';
+$string['widget:myprofile_help'] = 'Display the information about the user profile with important KPI';
+
+$string['field:profileimage'] = 'Show user profile image';
+$string['field:fullname'] = 'Show user\'s full name';
+
+$string['field:completedcourses'] = 'Completed courses';
+$string['field:enrolledprogress'] = 'Completed/total courses';
+$string['field:coursesinprogress'] = 'Courses in progress';
+$string['field:currentcoursescount'] = 'Current courses';
+$string['field:futurecoursescount'] = 'Future courses';
+$string['field:pastcoursescount'] = 'Past courses';
+$string['field:earnedskillpoints'] = 'Earned skill points';
+$string['field:earnedandtotalpoints'] = 'Earned/total skill points';
+$string['field:loginstreak'] = 'Login streak';
+$string['field:loginsthisweek'] = 'Logins this week';
+$string['field:completedcoursesinweek'] = 'Completed courses this week';
+$string['field:completedactivitiesinweek'] = 'Completed activities this week';
+$string['field:numberofdueactivities'] = 'Number of due activities';
+$string['field:numberofoverdueactivities'] = 'Number of overdue activities';
+$string['field:numberofunreadmsg'] = 'Number of unread messages';
+$string['field:numberofcontactreq'] = 'Number of contact requests';
+$string['field:sincelogindays'] = 'Number of days since last login';
+$string['field:teammemberscount'] = 'Number of team members';
+$string['field:onlineuserscount'] = 'Number of users currently online';
+$string['field:profileuserinfo'] = 'Profile user info {$a}';
+$string['field:kpi'] = 'KPI {$a}';
+$string['loginstreakdays'] = 'Login streak days';
+$string['loginstreakdaysdesc'] = 'Set the number of consecutive days required to maintain a streak.';
+
+// ...myprofile kpi labels displayed to users.
+$string['label:completedcourses'] = 'Completed courses';
+$string['label:enrolledprogress'] = 'Completed courses';
+$string['label:coursesinprogress'] = 'Courses in progress';
+$string['label:currentcoursescount'] = 'Current courses';
+$string['label:futurecoursescount'] = 'Future courses';
+$string['label:pastcoursescount'] = 'Past courses';
+$string['label:earnedskillpoints'] = 'Points collected';
+$string['label:earnedandtotalpoints'] = 'Earned/total points';
+$string['label:loginstreak'] = 'Day streak';
+$string['label:loginsthisweek'] = 'Logins this week';
+$string['label:completedcoursesinweek'] = 'Courses completed this week';
+$string['label:completedactivitiesinweek'] = 'Activities completed this week';
+$string['label:numberofdueactivities'] = 'Due activities';
+$string['label:numberofoverdueactivities'] = 'Overdue activities';
+$string['label:numberofunreadmsg'] = 'Unread messages';
+$string['label:numberofcontactreq'] = 'Contact requests';
+$string['label:sincelogindays'] = 'Days since last login';
+$string['label:teammemberscount'] = 'Team members';
+$string['label:onlineuserscount'] = 'Users currently online';
+
+// ...Block dash.
+$string['learningpath:path'] = 'Path';
+$string['learningpath:infoarea'] = 'Info area content';
+
+$string['widget:learningpath'] = 'Learning Path';
+$string['widget:learningpath_help'] = 'List of courses available in the learning path.';
+
+$string['dot'] = "Dot";
+$string['tinyimage'] = "Tiny image";
+$string['smallimage'] = "Small image";
+$string['mediumimage'] = "Medium image";
+$string['largeimage'] = "Large image";
+$string['extralargeimage'] = "Extra large image";
+
+$string['menu'] = "Menu order";
+$string['courseshortname'] = "Course short name";
+$string['coursefullname'] = "Course full name";
+$string['courseidnumber'] = "Course idnumber";
+$string['coursestartdate'] = "Course start date";
+
+$string['asc'] = "ASC";
+$string['desc'] = "DESC";
+
+
+$string['field:infoarea'] = "Info area";
+$string['field:infoarea_help'] = "if true, show the info area";
+$string['field:courseimgsize'] = "Course image size";
+$string['field:courseimgsize_help'] = "
+Dot — 20x20 px dot, without the course image. <br>
+Tiny image — 35x35px.<br>
+Small image — 50x50px.<br>
+Medium image — 75x75px.<br>
+Large image — 100x100px.<br>
+Extra large image — 150x150px.
+";
+$string['field:startelement'] = "Start element";
+$string['field:startelement_help'] = " if true, adds the start element at the beginning of the path";
+$string['field:finishelement'] = "Finish element";
+$string['field:finishelement_help'] = "if true, adds the finish element at the End of the path";
+$string['field:detailsarea'] = "Details area";
+$string['field:detailsarea_help'] = "if true, displays a details area as modal upon clicking the course";
+$string['field:orderby'] = "Order by";
+$string['field:orderby_help'] = "Order by";
+$string['field:orderdirection'] = "Order direction";
+$string['field:orderdirection_help'] = "Order direction";
+$string['field:limit'] = "Limit";
+$string['field:limit_help'] = "Limit";
+$string['field:learningpathdesktop'] = "Path for Desktop";
+$string['field:learningpathtablet'] = "Path for Tablet";
+$string['field:learningpathmobile'] = "Path for Mobile";
+$string['leanringpath_infocontent'] = 'You have completed <b>{$a->completed}</b> out of <b> {$a->total} </b> courses. The next course in this learning path is: <b> {$a->nextcourse}</b>';
+$string['trialpath'] = "Trial";
+$string['anothertrailpath'] = "Another trial";
+$string['circlepath'] = "Circle";
+$string['desktop_learningpath'] = "Learning Path for Desktop";
+$string['desktop_learningpath_desc'] = "";
+$string['tablet_learningpath'] = "Learning Path for Tablet";
+$string['tablet_learningpath_desc'] = "";
+$string['mobile_learningpath'] = "Learning Path for Mobile";
+$string['mobile_learningpath_desc'] = "";
+
+$string['resumelearningpath'] = "Resume learning path";
+$string['completedlearningpath'] = "Learning path complete. Good job!";
+
+$string['resumecourse'] = "Resume course";
+$string['completedcourse'] = "Completed course";
+$string['startcourse'] = "Start course";
+
+$string['restrictcurrentsection'] = "Automatically restrict to current section";
+$string['restrictcurrentsection_desc'] = "If a dash block with the content addon is added to a single-section page, it shall be automatically restricted to that section.";
+
+$string['learningpathstart'] = 'Start';
+$string['learningpathfinish'] = 'Finish';
+$string['nocourselearnigpath'] = "No courses have been added to the learning path yet.";

@@ -40,7 +40,7 @@ abstract class select_filter extends filter {
      *
      * @var array
      */
-    private $options = [];
+    protected $options = [];
 
     /**
      * Initialize the filter. It must be initialized before values are extracted or SQL generated.
@@ -62,7 +62,7 @@ abstract class select_filter extends filter {
             self::OPERATION_EQUAL,
             self::OPERATION_IN_OR_EQUAL,
             self::OPERATION_LIKE,
-            self::OPERATION_LIKE_WILDCARD
+            self::OPERATION_LIKE_WILDCARD,
         ];
     }
 
@@ -90,7 +90,7 @@ abstract class select_filter extends filter {
      * @param string $label
      */
     public function add_option($value, $label) {
-        $this->options[$value] = $label;
+        $this->options[$value] = format_string($label, false);
     }
 
     /**
@@ -100,7 +100,7 @@ abstract class select_filter extends filter {
      */
     public function add_options($options) {
         foreach ($options as $key => $option) {
-            $this->options[$key] = $option;
+            $this->options[$key] = format_string($option, false);
         }
     }
 
@@ -145,10 +145,26 @@ abstract class select_filter extends filter {
 
         $options = $this->options;
         asort($options);
+        $options = array_filter($options);
+
+        // Display the select box as tags only for grid layouts.
+        $tags = ($filtercollection->layout == 'local_dash\layout\cards_layout'
+            && count($options) > 1
+            && count($options) <= BLOCK_DASH_FILTER_TABS_COUNT
+            ) ? true : false;
 
         // If All option is present, send it to top.
         if (isset($options[self::ALL_OPTION])) {
-            $options = array(self::ALL_OPTION => $options[self::ALL_OPTION]) + $options;
+            $options = [self::ALL_OPTION => $options[self::ALL_OPTION]] + $options;
+
+            if (isset($options[self::ALL_OPTION]) && $tags) {
+                $expstring = explode(" ", $options[self::ALL_OPTION]);
+                if (isset($expstring[1])) {
+                    array_shift($expstring); // Remove first string.
+                    $selectlabel = implode(" ", $expstring);
+                }
+                unset($options[self::ALL_OPTION]);
+            }
         }
 
         $newoptions = [];
@@ -161,7 +177,9 @@ abstract class select_filter extends filter {
         return $OUTPUT->render_from_template('block_dash/filter_select', [
             'name' => $name,
             'options' => $newoptions,
-            'multiple' => true
+            'multiple' => true,
+            'tabs' => $tags,
+            'label' => $selectlabel ?? '',
         ]);
     }
 }

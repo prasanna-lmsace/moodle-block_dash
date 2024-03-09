@@ -98,10 +98,9 @@ class mylearning_widget extends abstract_widget {
             'id', 'category', 'sortorder', 'format',
             'shortname', 'fullname', 'idnumber', 'summary',
             'startdate', 'visible',
-            'groupmode', 'groupmodeforce', 'cacherev'
+            'groupmode', 'groupmodeforce', 'cacherev',
         ];
         $courses = enrol_get_my_courses($basefields, null, 0, [], false, 0, $completedcourses);
-
         array_walk($courses, function($course) {
             $courseelement = (class_exists('\core_course_list_element'))
             ? new \core_course_list_element($course) : new \course_in_list($course);
@@ -110,15 +109,15 @@ class mylearning_widget extends abstract_widget {
             $category = (class_exists('\core_course_category'))
             ? \core_course_category::get($course->category) : \coursecat::get($course->category);
             $course->courseimage = $this->courseimage($course);
-            $course->category = (isset($category->name) ? $category->name : '');
+            $course->category = (isset($category->name) ? format_string($category->name) : '');
             $course->badges = $this->badges($course);
             $course->coursecontent = $this->coursecontent($course);
             $course->contacts = $this->contacts($course);
             $course->customfields = $this->customfields($course);
             $course->courseurl = new \moodle_url('/course/view.php', ['id' => $course->id]);
             $course->summary = shorten_text($summary, 200);
+            $course->fullname = $courseelement->get_formatted_fullname();
         });
-
         $this->data = (!empty($courses)) ? ['courses' => array_values($courses)] : [];
 
         return $this->data;
@@ -225,7 +224,7 @@ class mylearning_widget extends abstract_widget {
             $link = html_writer::empty_tag('img', [
                 'src' => $userpicture->get_url($PAGE)->out(false),
                 'alt' => fullname($user),
-                'role' => "presentation"
+                'role' => "presentation",
             ]);
             $link .= html_writer::tag('span', fullname($user));
 
@@ -259,8 +258,8 @@ class mylearning_widget extends abstract_widget {
             if ($course->has_custom_fields()) {
                 foreach ($course->get_custom_fields() as $field) {
                     $output[] = [
-                        'fieldname' => $field->get_field()->get('name'),
-                        'value' => ($field->export_value()) ? $field->export_value() : '-'
+                        'fieldname' => format_string($field->get_field()->get('name')),
+                        'value' => ($field->export_value()) ? $field->export_value() : '-',
                     ];
                 }
                 return $output;
@@ -274,8 +273,8 @@ class mylearning_widget extends abstract_widget {
                         require_once($CFG->dirroot.'/totara/customfield/field/'.$type.'/field.class.php');
                         $classname = 'customfield_'.$type;
                         $output[] = [
-                            'fieldname' => $field->fullname,
-                            'value' => $classname::display_item_data($field->data)
+                            'fieldname' => format_string($field->fullname),
+                            'value' => $classname::display_item_data($field->data),
                         ];
                     }
                 }
@@ -332,12 +331,14 @@ class mylearning_widget extends abstract_widget {
      */
     public static function get_course_contents($courseid) {
         global $CFG, $DB, $USER, $PAGE;
+        // Include library files.
         require_once($CFG->dirroot . "/course/lib.php");
         require_once($CFG->libdir . '/completionlib.php');
+        require_once($CFG->libdir . '/externallib.php');
 
-        $filters = array();
+        $filters = [];
         // Retrieve the course.
-        $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
+        $course = $DB->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
 
         if ($course->id != SITEID) {
             // Check course format exist.
@@ -352,7 +353,7 @@ class mylearning_widget extends abstract_widget {
         $canupdatecourse = true;
 
         // Create return value.
-        $coursecontents = array();
+        $coursecontents = [];
 
         if ($canupdatecourse || $course->visible
                 || has_capability('moodle/course:viewhiddencourses', $context)) {
@@ -361,7 +362,7 @@ class mylearning_widget extends abstract_widget {
             $sections = $modinfo->get_section_info_all();
             $courseformat = course_get_format($course);
             $coursenumsections = $courseformat->get_last_section_number();
-            $stealthmodules = array();   // Array to keep all the modules available but not visible in a course section/topic.
+            $stealthmodules = [];   // Array to keep all the modules available but not visible in a course section/topic.
 
             $completioninfo = new \completion_info($course);
 
@@ -369,12 +370,12 @@ class mylearning_widget extends abstract_widget {
             foreach ($sections as $key => $section) {
                 // This becomes true when we are filtering and we found the value to filter with.
                 $sectionfound = false;
-                $sectionvalues = array();
+                $sectionvalues = [];
                 $sectionvalues['id'] = $section->id;
                 $sectionvalues['name'] = get_section_name($course, $section);
                 $sectionvalues['visible'] = $section->visible;
 
-                $options = (object) array('noclean' => true);
+                $options = (object) ['noclean' => true];
                 list($sectionvalues['summary'], $sectionvalues['summaryformat']) =
                         external_format_text($section->summary, $section->summaryformat,
                                 $context->id, 'course', 'section', $section->id, $options);
@@ -385,7 +386,7 @@ class mylearning_widget extends abstract_widget {
                     $sectionvalues['availabilityinfo'] = \core_availability\info::format_info($section->availableinfo, $course);
                 }
 
-                $sectioncontents = array();
+                $sectioncontents = [];
 
                 // For each module of the section.
                 $sectionactivitycompleted = $sectionactivitycount = 0;
@@ -402,7 +403,7 @@ class mylearning_widget extends abstract_widget {
 
                         // This becomes true when we are filtering and we found the value to filter with.
                         $modfound = false;
-                        $module = array();
+                        $module = [];
                         $modcontext = context_module::instance($cm->id);
 
                         $module['id'] = $cm->id;
@@ -439,7 +440,7 @@ class mylearning_widget extends abstract_widget {
                         if (!empty($cm->showdescription) || $module['noviewlink']) {
                             // We want to use the external format. However from reading get_formatted_content(), $cm->content
                             // Format is always FORMAT_HTML.
-                            $options = array('noclean' => true);
+                            $options = ['noclean' => true];
                             list($module['description'], $descriptionformat) = external_format_text($cm->content,
                                 FORMAT_HTML, $modcontext->id, $cm->modname, 'intro', $cm->id, $options);
                         }
@@ -504,7 +505,7 @@ class mylearning_widget extends abstract_widget {
                 }
                 // Remove section and modules information if the section is not visible for the user.
                 if (!$section->uservisible) {
-                    $coursecontents[$sectionnumber]['modules'] = array();
+                    $coursecontents[$sectionnumber]['modules'] = [];
                     // Remove summary information if the section is completely hidden only,
                     // Even if the section is not user visible, the summary is always displayed among the availability information.
                     if (!$section->visible) {
@@ -515,13 +516,13 @@ class mylearning_widget extends abstract_widget {
 
             // Include stealth modules in special section (without any info).
             if (!empty($stealthmodules)) {
-                $coursecontents[] = array(
+                $coursecontents[] = [
                     'id' => -1,
                     'name' => '',
                     'summary' => '',
                     'summaryformat' => FORMAT_MOODLE,
-                    'modules' => $stealthmodules
-                );
+                    'modules' => $stealthmodules,
+                ];
             }
         }
         return $coursecontents;
